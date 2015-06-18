@@ -17,7 +17,7 @@ public class Taboo<T> {
 	 * @param rules rules for new Taboo
 	 */
 	public Taboo(List<T> rules) {
-	    this.rules = rules;
+	    this.rules = new ArrayList<T>(rules);
 	}
 	
 	/**
@@ -27,18 +27,25 @@ public class Taboo<T> {
 	 * @return elements which should not follow the given element
 	 */
 	public Set<T> noFollow(T elem) {
-	    Set<T> r = Collections.emptySet();
+	    Set<T> r = new HashSet<T>();
 	    boolean next = false;
-	    for(T i:this.rules) {
-	        if(next == true && i!= null) {
-	            r.add(i);
+	    for (T i:this.rules) {
+	        if (next == true) {
+	            if (i != null) {
+	                r.add(i);
+	                next = false;
+	            }
+	            else {
+	                next = false;
+	            }
 	        }
-	        if(i == elem) {
+	        if (i == elem) {
 	            next = true;
 	        }
 	    }
 	    return r;
 	}
+	
 	
 	/**
 	 * Removes elements from the given list that
@@ -46,16 +53,18 @@ public class Taboo<T> {
 	 * @param list collection to reduce
 	 */
 	public void reduce(List<T> list) {
-	    Set<T> noF = Collections.emptySet();
-	    int idx = 0;
-	    for(T l:list) {
-	        if(noF.contains(l)) {
-	            list.remove(idx);
+	    Set<T> noF = new HashSet<T>();
+	    Iterator<T> i = list.iterator();
+	    
+	    while (i.hasNext()) {
+	        T next = i.next();
+	        if (noF.contains(next)) {
+	            i.remove();
 	        }
 	        else {
-	            noF = noFollow(l);
-	            idx++;
+	            noF = noFollow(next);
 	        }
+	        
 	    }
 	}
 }
