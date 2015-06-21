@@ -101,7 +101,7 @@ public class Piece {
 	 rotated from the receiver.
      */
     public Piece computeNextRotation() {
-        TPoint[] nextArray = new TPoint[this.body.length];//the right way to do it?
+        TPoint[] nextArray = new TPoint[this.body.length];
         for (int i = 0; i < this.body.length; i++) {
             nextArray[i] = new TPoint(this.body[i]);
         }
