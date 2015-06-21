@@ -137,6 +137,13 @@ public class JTetris extends JComponent {
 				}
 			}, "left", KeyStroke.getKeyStroke('j'), WHEN_IN_FOCUSED_WINDOW
 		);
+	      registerKeyboardAction(
+	              new ActionListener() {
+	                  public void actionPerformed(ActionEvent e) {
+	                      tick(LEFT);
+	                  }
+	              }, "left", KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, InputEvent.SHIFT_DOWN_MASK), WHEN_IN_FOCUSED_WINDOW
+	          );
 		
 		
 		// RIGHT
@@ -154,7 +161,13 @@ public class JTetris extends JComponent {
 				}
 			}, "right", KeyStroke.getKeyStroke('l'), WHEN_IN_FOCUSED_WINDOW
 		);
-		
+        registerKeyboardAction(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        tick(RIGHT);
+                    }
+                }, "right", KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, InputEvent.SHIFT_DOWN_MASK), WHEN_IN_FOCUSED_WINDOW
+            );
 		
 		// ROTATE	
 		registerKeyboardAction(
@@ -171,6 +184,13 @@ public class JTetris extends JComponent {
 				}
 			}, "rotate", KeyStroke.getKeyStroke('k'), WHEN_IN_FOCUSED_WINDOW
 		);
+        registerKeyboardAction(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        tick(ROTATE);
+                    }
+                }, "rotate", KeyStroke.getKeyStroke(KeyEvent.VK_UP, InputEvent.SHIFT_DOWN_MASK), WHEN_IN_FOCUSED_WINDOW
+            );
 		
 		
 		// DROP
@@ -188,6 +208,13 @@ public class JTetris extends JComponent {
 				}
 			}, "drop", KeyStroke.getKeyStroke('n'), WHEN_IN_FOCUSED_WINDOW
 		);
+        registerKeyboardAction(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        tick(DROP);
+                    }
+                }, "drop", KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, InputEvent.SHIFT_DOWN_MASK), WHEN_IN_FOCUSED_WINDOW
+            );
 		
 		
 		// Create the Timer object and have it send
