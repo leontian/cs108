@@ -62,5 +62,10 @@ public class PieceTest {
 		assertTrue(Arrays.equals(new int[] {1, 0}, sRotated.getSkirt()));
 	}
 	
+	@Test
+	public void testEquals() {
+	    
+	}
+	
 	
 }

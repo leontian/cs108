@@ -38,6 +38,7 @@ public class BoardTest {
 		assertEquals(3, b.getRowWidth(0));
 		assertEquals(1, b.getRowWidth(1));
 		assertEquals(0, b.getRowWidth(2));
+		System.out.println(b);
 	}
 	
 	// Place sRotated into the board, then check some measures
@@ -50,7 +51,9 @@ public class BoardTest {
 		assertEquals(4, b.getColumnHeight(1));
 		assertEquals(3, b.getColumnHeight(2));
 		assertEquals(4, b.getMaxHeight());
+		System.out.println(b);
 	}
+	
 	
 	// Make  more tests, by putting together longer series of 
 	// place, clearRows, undo, place ... checking a few col/row/max

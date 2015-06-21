@@ -2,10 +2,12 @@
 package tetris;
 
 import java.awt.*;
+
 import javax.swing.*;
 
 import java.util.*;
 import java.awt.event.*;
+
 import javax.swing.event.*;
 
 import java.awt.Toolkit;
@@ -278,6 +280,7 @@ public class JTetris extends JComponent {
 		else {
 			board.undo();
 		}
+	    System.out.println(board);
 		
 		return(result);
 	}
