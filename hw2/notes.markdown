@@ -35,11 +35,49 @@ public interface Comparable {
 1. The Object class is the Universal superclass in Java -- every object is, at some distance, a subclass of Object.
 2. Object methods：
   - boolean equals(Object other); //deep comparason.
+    * can access ivar of the other oject, though private, since we are the same class. (called "sibling" access.
+    * equals() does not do the right thing with two arrays: it does a shallow == comparison. Instead, use Arrays.equals() or Arrays.deepEquals() for deep array comparison.
+    Example:
+```java
+@Override
+public boolean equals(Object obj) {
+  // Note: our argument must be Object, not Ingredient,
+  // to match the equals() prototype up in the Object class.
+
+  // Standard equals() tests...
+  if (this == obj) return true;
+  if (!(obj instanceof Ingredient)) return false;
+
+  // Now do deep compare
+  Ingredient other = (Ingredient)obj;
+  return (grams==other.getGrams() && name.equals(other.getName()));
+}
+```
+  - int hashCode(); //int hash summary of object 
+    * if a.equals(b), then it is required that a.hashCode()==b.hashCode();
+    * this allows an object to be a key (also required) in a HashMap. should be fast to compute.
+    * if equals() is overridden, then hashCode() should also be overridden to be consistent with equals().
+    * Example:
+```java
+@Override
+public int hashCode() {
+  // if two objects are deeply the same, their
+  // hash codes must be the same
+  return (grams + name.length()*11);
+  // could use name.hashCode() instead of name.length()
+```
+  - String toString(); //String form of object
     * default definition: print object's class and address.
     * println() and String "+" know to call toString() automatically
     * can be handy for debugging
-  - int hashCode(); //int hash summary of object 
-  - String toString(); //String form of object
   - Class getClass(); //Ask an object what its class is
 
+### JavaDoc
 
+1. this is how all the standard class API docs are generated
+2. JavaDoc sections start with two stars /\*\* blah blah \*/
+3. HTML markup can be used <p><code><b>
+4. Class Overview:
+  - summerize what the class encapsulates and its operational theory for the client.
+  - for a large class include <code> </code> sections showing typical client code.
+5. 
