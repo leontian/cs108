@@ -36,6 +36,8 @@ public interface Comparable {
 2. Object methods：
   - boolean equals(Object other); //deep comparason.
     * default definition: print object's class and address.
+    * println() and String "+" know to call toString() automatically
+    * can be handy for debugging
   - int hashCode(); //int hash summary of object 
   - String toString(); //String form of object
   - Class getClass(); //Ask an object what its class is
