@@ -76,10 +76,10 @@ public int hashCode() {
 
 1. this is how all the standard class API docs are generated
 2. JavaDoc sections start with two stars /\*\* blah blah \*/
-3. HTML markup can be used *<p><code><b>*
+3. HTML markup can be used \<p>\<code>\<b>
 4. Class Overview:
   - summerize what the class encapsulates and its operational theory for the client.
-  - for a large class include *<code> </code>* sections showing typical client code.
+  - for a large class include \<code>\</code> sections showing typical client code.
 5. Method JavaDoc
   - JavaDoc uses the first sentence as a summary in the table of methods.
   - what does it do, what effect is there on the receiver and what are the  roles of the parameters
